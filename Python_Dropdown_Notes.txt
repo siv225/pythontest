@@ -1,0 +1,28 @@
+ Python - working with dropdown
+
+# we should import Select class package
+from selenium.webdriver.support.ui import Select
+
+find the element of the dropdown box
+element=driver.find_element_by_id("dropdown's id")
+drp=select(element)
+
+# select the value by visible text
+drp.select_by_visible_text('')
+
+#select the value by index value
+drp.select_by_index(2)
+
+#select by value
+drp.select_by_Value()
+
+--------------------------------------------------
+How to count number of options are listed
+
+print(len(drp.options))
+
+--------------------------------------------------------
+How to capture all the option and print them as output
+
+ 
+ 

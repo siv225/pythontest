@@ -1,0 +1,132 @@
+
+Python
+
+DOM - Document Object Model - all web elements will be available.
+
+ pip package will be installed by default in version above 3.0
+ To check the pip version use command 
+ pip --version in cmd prompt
+ To install selenium plugin in python use below command
+ pip install -U selenium
+ 
+ Import package in selenium:
+ 
+ import selenium webdriver
+ selenium.webdriver.common.keys import keys
+ 
+ driver=webdriver.Chrome(executable_path="C:/Users/SNL/Documents/Selenium_Python/chromedriver_win32_Python/chromedriver.exe")
+driver.get("https://www.tnebnet.org/awp/login;jsessionid=hvs6fOYLFbw4XnIP4BKzLMY7")
+
+------------------------------------------------------------------------------------------------ 
+ Navigation Commands
+ driver.back()
+ driver.forward()
+ 
+ time.sleep(5)  // use import.time  package
+ 
+ -----------------------------------------------------------------------------------------------------------------------
+ Conditonal Commands
+  - is_displayed()  // this command can be used to verify all kind of web elements
+   is_enabled() // this command can be used to verify all kind of web elements
+   is_Selected() // this command can be used to verify check boxes and Radio buttons.
+
+-------------------------------------------------------------------------------------------------------------------------------
+# Try and Catch for StaleElementExceptionTest
+   
+from selenium import webdriver
+from selenium.common.exceptions import StaleElementReferenceException
+
+chromeOptions = webdriver.ChromeOptions()
+chromeOptions.add_argument("--start-maximized")
+
+driver = webdriver.Chrome(chrome_options=chromeOptions, executable_path="path to chromedriver")
+driver.get("file:///data/StaleElementExceptionTest.html") # path to html file
+
+usernameElement = driver.find_element_by_id("idUsername")
+passwordElement = driver.find_element_by_id("idPassword")
+
+usernameElement.send_keys("testuser")
+
+driver.find_element_by_id("reloadLink").click()
+
+-------------------------------------------------------------------------------------------------------------
+Try and catch
+try:
+    passwordElement.send_keys("password")
+except StaleElementReferenceException as Exception:
+    print('StaleElementReferenceException while trying to type password, trying to find element again')
+    passwordElement = driver.find_element_by_id("idPassword")
+    passwordElement.send_keys("password")
+
+driver.quit()
+
+-----------------------------------
+import os
+print(os.getcwd()) // to retrive current working directory
+
+------------------------------------------------------------------------------------------------------------------------------
+Python File Handling:
+
+Create a New File
+To create a new file in Python, use the open() method, with one of the following parameters:
+
+"x" - Create - will create a file, returns an error if the file exist
+
+"a" - Append - will create a file if the specified file does not exist
+
+"w" - Write - will create a file if the specified file does not exist
+
+File Write Method:  There are two parameters as below:
+"a" = will append the text to the end of the file
+"w" = will overwrite the entire file or existing file.
+
+--------------------------------------------------------------------------------------------------------------------------------------
+The open() function takes two parameters; filename, and mode.
+
+There are four different methods (modes) for opening a file:
+
+"r" - Read - Default value. Opens a file for reading, error if the file does not exist
+
+"a" - Append - Opens a file for appending, creates the file if it does not exist
+
+"w" - Write - Opens a file for writing, creates the file if it does not exist
+
+"x" - Create - Creates the specified file, returns an error if the file exists
+
+In addition you can specify if the file should be handled as binary or text mode
+
+"t" - Text - Default value. Text mode
+
+"b" - Binary - Binary mode (e.g. images)
+
+--------------------------------------------------------------------------------------------------------------------------------
+Delete a File
+To delete a file, you must import the OS module, and run its os.remove() function:
+
+
+Check if File exist:
+To avoid getting an error, you might want to check if the file exists before you try to delete it:
+
+Example
+Check if file exists, then delete it:
+
+import os
+if os.path.exists("demofile.txt"):
+  os.remove("demofile.txt")
+else:
+  print("The file does not exist")
+
+------------------------------------------------------------------------------------------------------------------------------------
+  Delete Folder
+To delete an entire folder, use the os.rmdir() method:
+
+Example
+Remove the folder "myfolder":
+
+import os
+os.rmdir("myfolder")
+Note: You can only remove empty folders.
+
+-----------------------------------------------------------------------------------------------------------------------------------   
+ 
+ 
